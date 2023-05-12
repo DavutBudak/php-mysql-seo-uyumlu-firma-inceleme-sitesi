@@ -1,0 +1,42 @@
+RewriteEngine On
+
+#SSL Redirect
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+# www iptal 
+RewriteCond %{HTTP_HOST} ^www.siteadresi.com [NC]
+RewriteRule ^(.*)$ https://siteadresi.com/$1 [L,R=301]
+
+#Dosya ve klasör hariç, - L çoklu tekrar eşleştir
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+
+
+
+#SEO URL
+Rewriterule ^top5 index.php?sayfa=top5$1 [NC]
+Rewriterule ^kullanimkosullari index.php?sayfa=kullanim-kosullari$1 [NC]
+Rewriterule ^korumapolitikasi index.php?sayfa=koruma-politikasi$1 [NC]
+Rewriterule ^riskbildirimi index.php?sayfa=risk-bildirimi$1 [NC]
+Rewriterule ^iletisim index.php?sayfa=iletisim$1 [NC]
+#Rewriterule ^kampanyalar index.php?sayfa=kampanyalar$1 [NC]
+RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
+RewriteRule ^post-sitemap.xml$ post-sitemap.php [NC,L]
+RewriteRule ^page-sitemap.xml$ page-sitemap.php [NC,L]
+RewriteRule ^butun-firmalar? index.php?sayfa=firmalar&page=1 [L,QSA]
+RewriteRule ^(.*)$ index.php?sayfa=firmadetay&link=$1 [L,QSA]
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+User-agent:*
+Disallow:/kullanimkosullari
+Disallow:/korumapolitakasi
+Disallow:/riskbildirimi
+Disallow:/admin
+
+Sitemap: https://siteadresi.com/sitemap.xml
